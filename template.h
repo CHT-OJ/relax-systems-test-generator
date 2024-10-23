@@ -9,38 +9,30 @@ ll Rand(ll l, ll r) { // Rand trong khoang (l, r)
     return uniform_int_distribution<ll>(l,r) (rd);
 } 
 
-ll Rnd() // tra ve mot so ngau nhien ...
-{
-    ll ans = 0;
-    for(int i = 0; i < 8; i ++) ans ^= ((ll)(rand() % 255) << (8 * i));
-    return ans;
+bool genbit01() { // tra ve 0 hoac 1
+    return Rand(1, 100)%2;
 }
-
-bool bit01() { // tra ve 0 hoac 1
-    return Rand(1, 1e5)%2;
-}
-char az() { // tra ve ki tu ngau nhien tong ['a' .. 'z']
+char genaz() { // tra ve ki tu ngau nhien tong ['a' .. 'z']
     return (char)(Rand('a', 'z'));
 }
-char AZ() { // tra ve ki tu ngau nhien tong ['A' .. 'Z']
+char genAZ() { // tra ve ki tu ngau nhien tong ['A' .. 'Z']
     return (char)(Rand('A', 'Z'));
 }
-char num() { // tra ve ['0' .. '9']
+char gennum() { // tra ve ['0' .. '9']
     return '0' + Rand(0, 9);
 }
 
-int cal(int x, int n) {
+int cal(int x, int n) { // tinh tra ve x% cua n 
     return double(n / 100.0) * x;
 }
 
-
-string genbignum(ll l) // sinh mot so lon gom l chu so (co the co chu so 0 o dau
+string genbignum(ll l) // sinh mot so lon gom l chu so (khong co chu so 0 o dau)
 {
     string s;
     for(int i = 1; i <= l; i ++)
     {
         s += " ";
-        s[s.size() - 1] = num();
+        s[s.size() - 1] = gennum();
     }
     return s;
 }
@@ -66,7 +58,7 @@ vector<pair<int, int> > gentree(int ver) // sinh mot cay va tra ve cac canh
     return ans;
 }
 
-vector<pair<int, int> > graph(int ver, int edge) // tra ve cac canh cua mot do thi ngau nhien
+vector<pair<int, int> > gengraph(int ver, int edge) // tra ve cac canh cua mot do thi ngau nhien
 {
     unordered_map<ll, bool> used;
     used[0] = true;
@@ -98,7 +90,7 @@ vector<pair<int, int> > graph(int ver, int edge) // tra ve cac canh cua mot do t
     return ans;
 }
 
-vector<pair<int, int> > connected_graph(int ver, int edge) // tra ve cac canh cua mot do thi lien thong
+vector<pair<int, int> > genconnected_graph(int ver, int edge) // tra ve cac canh cua mot do thi lien thong
 {
     unordered_map<ll, bool> used;
     used[0] = true;
@@ -137,7 +129,7 @@ vector<pair<int, int> > connected_graph(int ver, int edge) // tra ve cac canh cu
     return ans;
 }
 
-ll log_rand(ll t)
+ll genlog_rand(ll t)
 {
     int x = 64 - __builtin_clzll(t);
     return Rand(1, min(t, (1LL << Rand(1, x))));
