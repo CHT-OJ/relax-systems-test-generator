@@ -28,20 +28,13 @@ char AZ() { // tra ve ki tu ngau nhien tong ['A' .. 'Z']
 char num() { // tra ve ['0' .. '9']
     return '0' + Rand(0, 9);
 }
-void ShuffleArray(vector<long long> &arr, int n) { // hoan vi n phan tu dau tien cua mot vector arr
-    int minPosition;
-    int maxPosition = n - 1;
-    int swapPosition;
-    int i = 0;
-    while (i < n - 1) {
-        minPosition = i + 1;
-        swapPosition = Rand(1, 1e7) % (maxPosition - minPosition + 1) + minPosition;
-        swap(arr[i], arr[swapPosition]);
-        ++i;
-    }
+
+int cal(int x, int n) {
+    return double(n / 100.0) * x;
 }
 
-string bignum(long long l) // sinh mot so lon gom l chu so (co the co chu so 0 o dau
+
+string genbignum(long long l) // sinh mot so lon gom l chu so (co the co chu so 0 o dau
 {
     string s;
     for(int i = 1; i <= l; i ++)
@@ -52,7 +45,7 @@ string bignum(long long l) // sinh mot so lon gom l chu so (co the co chu so 0 o
     return s;
 }
 
-vector<pair<int, int> > tree(int ver) // sinh mot cay va tra ve cac canh
+vector<pair<int, int> > gentree(int ver) // sinh mot cay va tra ve cac canh
 {
     vector<pair<int, int> > ans;
     for(int i = 2; i <= ver; i ++)
