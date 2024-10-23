@@ -9,10 +9,10 @@ ll Rand(ll l, ll r) { // Rand trong khoang (l, r)
     return uniform_int_distribution<ll>(l,r) (rd);
 } 
 
-long long Rnd() // tra ve mot so ngau nhien
+ll Rnd() // tra ve mot so ngau nhien
 {
-    long long ans = 0;
-    for(int i = 0; i < 8; i ++) ans ^= ((long long)(rand() % 255) << (8 * i));
+    ll ans = 0;
+    for(int i = 0; i < 8; i ++) ans ^= ((ll)(rand() % 255) << (8 * i));
     return ans;
 }
 
@@ -34,7 +34,7 @@ int cal(int x, int n) {
 }
 
 
-string genbignum(long long l) // sinh mot so lon gom l chu so (co the co chu so 0 o dau
+string genbignum(ll l) // sinh mot so lon gom l chu so (co the co chu so 0 o dau
 {
     string s;
     for(int i = 1; i <= l; i ++)
@@ -68,7 +68,7 @@ vector<pair<int, int> > gentree(int ver) // sinh mot cay va tra ve cac canh
 
 vector<pair<int, int> > graph(int ver, int edge) // tra ve cac canh cua mot do thi ngau nhien
 {
-    unordered_map<long long, bool> used;
+    unordered_map<ll, bool> used;
     used[0] = true;
 
     vector<pair<int, int> > ans;
@@ -100,7 +100,7 @@ vector<pair<int, int> > graph(int ver, int edge) // tra ve cac canh cua mot do t
 
 vector<pair<int, int> > connected_graph(int ver, int edge) // tra ve cac canh cua mot do thi lien thong
 {
-    unordered_map<long long, bool> used;
+    unordered_map<ll, bool> used;
     used[0] = true;
 
     vector<pair<int, int> > ans;
@@ -137,7 +137,7 @@ vector<pair<int, int> > connected_graph(int ver, int edge) // tra ve cac canh cu
     return ans;
 }
 
-long long log_rand(long long t)
+ll log_rand(ll t)
 {
     int x = 64 - __builtin_clzll(t);
     return Rand(1, min(t, (1LL << Rand(1, x))));
