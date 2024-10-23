@@ -9,7 +9,7 @@ ll Rand(ll l, ll r) { // Rand trong khoang (l, r)
     return uniform_int_distribution<ll>(l,r) (rd);
 } 
 
-ll Rnd() // tra ve mot so ngau nhien
+ll Rnd() // tra ve mot so ngau nhien ...
 {
     ll ans = 0;
     for(int i = 0; i < 8; i ++) ans ^= ((ll)(rand() % 255) << (8 * i));
