@@ -20,26 +20,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-AUTHOR King.#4732
 '''
 import os
-import random
 import shutil
-import time
 import subprocess
 import sys
-
-def make_random(start:int,end:int) -> int:
-    return random.randint(start,end)
-    
-def make_input(file_name:str,start_line:int,end_line:int,start_random:int,end_random:int) -> None:
-    content:str = ""
-    with open(f"{file_name}.inp","w+") as file:
-        for _line in range(random.randint(start_line,end_line)):
-            content += f"{make_random(start=start_random,end=end_random)} {make_random(start=start_random,end=end_random)} {make_random(start=start_random,end=end_random)} {make_random(start=start_random,end=end_random)}\n"
-        file.write(content)
-        file.close()
 
 if __name__ == "__main__":
     mode:int = 2
