@@ -1,0 +1,7 @@
+a.cpp
+test_checker.cpp
+
+*.inp
+*.out
+*.exe
+*.ans
